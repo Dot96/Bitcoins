@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 let switchisonkey = "ison"
 let switchisoffkey = "isoff"
@@ -27,13 +28,30 @@ class TickersViewController: UIViewController {
     
     let URL_b = "https://api.coinmarketcap.com/v1/ticker/"
     
+    var arrayNot = ["We miss you", "see the latest news", "you didn't see the (TRON) Price today !!!! ", "we have important news For you"]
+    var shuffled = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Tickers"
         fetchCoins()
         createObservers()
+       
     }
     func fetchCoins() {
+        
+               ///Notifications
+               let center = UNUserNotificationCenter.current()
+               let content = UNMutableNotificationContent ()
+               content.title = "BitCoins App"
+               content.body = arrayNot.randomElement()!
+               content.sound = .default
+               var dateComponents = DateComponents()
+               dateComponents.second = 15
+               let trig = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+               let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trig)
+               center.add(request, withCompletionHandler: nil)
+        
         let url = URL(string: URL_b)!
         var urlReq = URLRequest(url: url)
         urlReq.timeoutInterval = 5
