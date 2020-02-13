@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="2613.04347826087" y="760.71428571428567"/>
         </scene>
-        <!--Latest News View Controller-->
+        <!--News View Controller-->
         <scene sceneID="n8j-xL-pZp">
             <objects>
-                <viewController id="5gr-L3-dod" customClass="LatestNewsViewController" customModule="BitcoinApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5gr-L3-dod" customClass="NewsViewController" customModule="BitcoinApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5uO-kE-Wc5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,15 +113,15 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.022433418780565262" green="0.020576868206262589" blue="0.031111931428313255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="bodytext" destination="lbk-bt-d54" id="6Ux-P8-XCw"/>
-                                            <outlet property="imgnews" destination="LbL-DD-wrM" id="q3F-L9-6F3"/>
-                                            <outlet property="titletext" destination="Zdl-ta-JLm" id="AAc-Go-pqp"/>
+                                            <outlet property="bodytext" destination="lbk-bt-d54" id="M0X-qA-WU2"/>
+                                            <outlet property="imgview" destination="LbL-DD-wrM" id="QXg-fE-K30"/>
+                                            <outlet property="titletext" destination="Zdl-ta-JLm" id="W6f-RH-EqR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="5gr-L3-dod" id="9bS-fP-0pM"/>
-                                    <outlet property="delegate" destination="5gr-L3-dod" id="20L-2k-c4K"/>
+                                    <outlet property="dataSource" destination="5gr-L3-dod" id="cMt-H2-S4Y"/>
+                                    <outlet property="delegate" destination="5gr-L3-dod" id="4wL-SQ-6T4"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -130,7 +130,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="sUp-fV-adb"/>
                     <connections>
-                        <outlet property="TableView" destination="73z-7E-cAN" id="WQD-w9-qmR"/>
+                        <outlet property="tableView" destination="73z-7E-cAN" id="2th-TY-JjZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odo-yF-ov6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -151,7 +151,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BitCell" rowHeight="90" id="pZt-4c-neA" customClass="TickersTableViewCell" customModule="BitcoinApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CoinsCell" rowHeight="90" id="pZt-4c-neA" customClass="CoinsCell" customModule="BitcoinApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pZt-4c-neA" id="6jJ-Ld-OPq">
@@ -170,13 +170,6 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin" translatesAutoresizingMaskIntoConstraints="NO" id="LTf-lC-mRY">
-                                                    <rect key="frame" x="23" y="28" width="36" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="0KH-hL-Bhj"/>
-                                                        <constraint firstAttribute="width" constant="36" id="vXZ-qI-Ojz"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjx-zE-NF4">
                                                     <rect key="frame" x="79" y="47" width="119" height="35"/>
                                                     <constraints>
@@ -187,6 +180,13 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin" translatesAutoresizingMaskIntoConstraints="NO" id="LTf-lC-mRY">
+                                                    <rect key="frame" x="23" y="28" width="36" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="0KH-hL-Bhj"/>
+                                                        <constraint firstAttribute="width" constant="36" id="vXZ-qI-Ojz"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -207,15 +207,15 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="Last24" destination="lXD-UR-Cyd" id="MaO-f1-OrI"/>
-                                            <outlet property="Name" destination="sjx-zE-NF4" id="Zj8-TC-Hqk"/>
-                                            <outlet property="Price" destination="336-CP-iXU" id="It4-04-BcQ"/>
+                                            <outlet property="namelabel" destination="sjx-zE-NF4" id="s2F-PW-2hZ"/>
+                                            <outlet property="numberlabel" destination="lXD-UR-Cyd" id="ks1-cx-Nge"/>
+                                            <outlet property="pricelabel" destination="336-CP-iXU" id="jiZ-a3-FQG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="bci-Tg-eV1" id="nX2-dZ-oeY"/>
-                                    <outlet property="delegate" destination="bci-Tg-eV1" id="62G-Jt-QXc"/>
+                                    <outlet property="dataSource" destination="bci-Tg-eV1" id="HV6-4M-Ydh"/>
+                                    <outlet property="delegate" destination="bci-Tg-eV1" id="LbF-kC-XbC"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -230,7 +230,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="FoK-UB-CBv"/>
                     <connections>
-                        <outlet property="TableView" destination="1m6-lq-E40" id="gwR-Sc-Ejm"/>
+                        <outlet property="tabelView" destination="1m6-lq-E40" id="MxF-5E-OJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="961-aI-HTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -274,7 +274,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5gr-L3-dod" kind="relationship" relationship="rootViewController" id="Bkv-ri-Bsb"/>
+                        <segue destination="5gr-L3-dod" kind="relationship" relationship="rootViewController" id="VHI-3t-Gak"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2R-qS-1RT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,10 +314,16 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gcy-Hm-hkY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="bci-Tg-eV1" kind="relationship" relationship="rootViewController" id="NHq-tL-FX7"/>
+                        <segue destination="bci-Tg-eV1" kind="relationship" relationship="rootViewController" id="ood-WN-wT9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIc-uM-woC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

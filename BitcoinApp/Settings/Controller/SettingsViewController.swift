@@ -24,6 +24,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
     super.viewDidLoad()
+        title = "Settings"
         if !firstTimeAppLaunch {
             defult.set(true, forKey: "firstTimeAppLaunch")
             defult.set(true, forKey: "mySwitchValue")
