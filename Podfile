@@ -5,8 +5,4 @@ target 'BitcoinApp' do
   use_frameworks!
 
   # Pods for BitcoinApp
- pod 'SwiftyJSON'
-  pod 'Alamofire'
-  pod 'SVProgressHUD'
-
 end
